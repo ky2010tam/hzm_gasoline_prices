@@ -63,6 +63,7 @@ def get_guangdong_prices():
 
 def main():
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    gd = get_guangdong_prices()
     
     # 整合所有數據
     result = {
@@ -86,11 +87,11 @@ def main():
             },
             {
                 "region": "廣東",
-                "price": get_china_price(),
+                "price": gd["95"],
                 "currency": "CNY",
                 "type": "95號",
                 "flag": "🇨🇳",
-                "source": "廣東油價監測"
+                "source": "汽車之家"
             }
         ]
     }
