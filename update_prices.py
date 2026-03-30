@@ -10,13 +10,24 @@ def get_hk_price():
     try:
         resp = requests.get(url, timeout=10)
         data = resp.json()
-        # 提取 98 無鉛 (Super Unleaded) 參考價
-        for oil in data.get('prices', []):
-            if 'super_unleaded' in oil and oil['super_unleaded']:
-                return float(oil['super_unleaded'])
-        return 31.79
-    except:
-        return 31.79
+        
+        prices_list = []
+        # 遍歷 JSON 結構
+        for entry in data:
+            # 1. 篩選 type 為 "無鉛汽油"
+            if entry.get("type") == "無鉛汽油":
+                # 2. 遍歷該項下的所有油站價格 (prices 子項)
+                for station in entry.get("prices", []):
+                    # 3. 獲取該站點的 price
+                    p = station.get("price")
+                    if p:
+                        prices_list.append(float(p))
+        
+        # 返回最低價
+        return min(prices_list) if prices_list else 29.84
+    except Exception as e:
+        print(f"HK JSON Error: {e}")
+        return 29.84
 
 def get_macau_cash_min():
     # 澳門消委會現金優惠 API
