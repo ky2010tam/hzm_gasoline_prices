@@ -1,5 +1,5 @@
 {
-    "last_updated": "2026-03-30 06:46:17",
+    "last_updated": "2026-03-30 07:15:33",
     "items": [
         {
             "region": "香港",
@@ -7,23 +7,31 @@
             "currency": "HKD",
             "type": "98無鉛",
             "flag": "🇭🇰",
-            "source": "香港消委會 Open Data"
+            "note": "零售參考價"
         },
         {
             "region": "澳門",
-            "price": 15.09,
+            "price": 14.71,
             "currency": "MOP",
             "type": "98無鉛",
             "flag": "🇲🇴",
-            "source": "澳門消委會"
+            "note": "全城最平現金價"
         },
         {
-            "region": "廣東",
+            "region": "珠海",
             "price": 9.21,
             "currency": "CNY",
             "type": "95號",
             "flag": "🇨🇳",
-            "source": "汽車之家"
+            "note": "廣東零售價"
+        },
+        {
+            "region": "珠海",
+            "price": 10.15,
+            "currency": "CNY",
+            "type": "98號",
+            "flag": "🇨🇳",
+            "note": "廣東零售價"
         }
     ]
 }
